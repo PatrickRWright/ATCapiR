@@ -1,5 +1,5 @@
 library(testthat)
-library(pkgTemplateR)
+library(ATCapiR)
 library(stringr)
 
-test_check("pkgTemplateR")
+test_check("ATCapiR")
