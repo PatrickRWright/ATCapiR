@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>License • ATCapiR</title>
+<title>Translate  given vector of ATC codes to text — translate_ATC_codes • ATCapiR</title>
 
 
 <!-- jquery -->
@@ -18,8 +18,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
 
 <!-- bootstrap-toc -->
-<link rel="stylesheet" href="bootstrap-toc.css">
-<script src="bootstrap-toc.js"></script>
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
@@ -33,13 +33,14 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
-<link href="pkgdown.css" rel="stylesheet">
-<script src="pkgdown.js"></script>
+<link href="../pkgdown.css" rel="stylesheet">
+<script src="../pkgdown.js"></script>
 
 
 
 
-<meta property="og:title" content="License" />
+<meta property="og:title" content="Translate  given vector of ATC codes to text — translate_ATC_codes" />
+<meta property="og:description" content="Translate  given vector of ATC codes to text" />
 
 
 
@@ -58,7 +59,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-title-body">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -70,7 +71,7 @@
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="index.html">ATCapiR</a>
+        <a class="navbar-link" href="../index.html">ATCapiR</a>
         <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1</span>
       </span>
     </div>
@@ -78,13 +79,13 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="index.html">
+  <a href="../index.html">
     <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
 <li>
-  <a href="reference/index.html">Reference</a>
+  <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -94,12 +95,12 @@
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="articles/pkgTemplateR-package-vignette.html">pkgTemplateR - a vignette</a>
+      <a href="../articles/pkgTemplateR-package-vignette.html">pkgTemplateR - a vignette</a>
     </li>
   </ul>
 </li>
 <li>
-  <a href="news/index.html">Changelog</a>
+  <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -115,25 +116,65 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>License</h1>
+    <h1>Translate  given vector of ATC codes to text</h1>
+    
+    <div class="hidden name"><code>translate_ATC_codes.Rd</code></div>
     </div>
 
-<pre>YEAR: 2020
-COPYRIGHT HOLDER: ATCapiR
-</pre>
+    <div class="ref-description">
+    <p>Translate  given vector of ATC codes to text</p>
+    </div>
 
+    <pre class="usage"><span class='fu'>translate_ATC_codes</span>(<span class='no'>ATC_codes</span>, <span class='kw'>level_depth</span> <span class='kw'>=</span> <span class='fl'>5</span>, <span class='no'>api_key</span>)</pre>
+
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>ATC_codes</th>
+      <td><p>character vector - ATC codes</p></td>
+    </tr>
+    <tr>
+      <th>level_depth</th>
+      <td><p>integer (1-5) - 1 is the shortest (length 1 char), 5 the longest (length 7 chars) code</p></td>
+    </tr>
+    <tr>
+      <th>api_key</th>
+      <td><p>character - create an account at https://bioportal.bioontology.org/ and it will come with an api key</p></td>
+    </tr>
+    </table>
+
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>Returns a data.frame with the valid input ATC codes in the first column (code)
+        and the textual names in the second column (name)</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>Validity of an ID is only judged based on its length after level depth based
+         truncation. Thus, IDs can never be too long, only too short. IDs which are
+         not part of the ATC database, will not return results from the bioportal
+         API and are translated to NA.</p>         
+<p>References:
+         https://en.wikipedia.org/wiki/Anatomical_Therapeutic_Chemical_Classification_System
+         https://www.ncbi.nlm.nih.gov/pubmed/21672956
+         https://www.bioontology.org/wiki/BioPortal_Help#Programming_with_the_BioPortal_API</p>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='no'>ATC_vect</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"A02BC02"</span>, <span class='st'>"C03BA08"</span>, <span class='st'>"A02BC02"</span>, <span class='st'>"A02BC02"</span>, <span class='st'>"A07DA03"</span>, <span class='st'>"A07DA03"</span>,
+              <span class='st'>"A02BC02"</span>, <span class='st'>"A02BC02"</span>, <span class='st'>"A02BC02"</span>, <span class='st'>"A02BC02"</span>, <span class='st'>"C10AA05"</span>, <span class='st'>"C10AA05"</span>,
+              <span class='st'>"C10AA05"</span>, <span class='st'>"N05BA06"</span>, <span class='st'>"N05BA06"</span>, <span class='st'>"N05BA06"</span>, <span class='st'>"N06AX11"</span>, <span class='st'>"N06AX11"</span>)
+<span class='co'># you will need to create an account at https://bioportal.bioontology.org/</span>
+<span class='co'># to receive an api_key</span>
+<span class='fu'>translate_ATC_codes</span>(<span class='no'>ATC_vect</span>, <span class='kw'>level_depth</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>api_key</span> <span class='kw'>=</span> <span class='no'>api_key</span>)</div><div class='output co'>#&gt; <span class='error'>Error in paste0(api_link, curr_code, "&amp;apikey=", api_key): object 'api_key' not found</span></div></pre>
   </div>
-
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>
     </nav>
   </div>
-
 </div>
-
 
 
       <footer>
