@@ -1,12 +1,12 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# pkgTemplateR `r badger::badge_custom("dev version", as.character(packageVersion("pkgTemplateR")), "blue", "https://github.com/CTU-Basel/pkgTemplateR")` [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/CTU-Basel/pkgTemplateR?branch=master&svg=true)](https://ci.appveyor.com/project/CTU-Basel/pkgTemplateR) [![travis](https://api.travis-ci.com/CTU-Basel/pkgTemplateR.svg?branch=master)](https://api.travis-ci.com/CTU-Basel/pkgTemplateR.svg?branch=master) [![codecov](https://codecov.io/github/CTU-Basel/pkgTemplateR/branch/master/graphs/badge.svg)](https://codecov.io/github/CTU-Basel/pkgTemplateR)
+# ATCapiR `r badger::badge_custom("dev version", as.character(packageVersion("ATCapiR")), "blue", "https://github.com/PatrickRWright/ATCapiR")` [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/PatrickRWright/ATCapiR?branch=master&svg=true)](https://ci.appveyor.com/project/PatrickRWright/ATCapiR) [![travis](https://api.travis-ci.com/PatrickRWright/ATCapiR.svg?branch=master)](https://api.travis-ci.com/PatrickRWright/ATCapiR.svg?branch=master) [![codecov](https://codecov.io/github/PatrickRWright/ATCapiR/branch/master/graphs/badge.svg)](https://codecov.io/github/PatrickRWright/ATCapiR)
 
 **Template created by Patrick R. Wright**
 
 If you would like to make use of this template just click the green
-"Use this template" button or use [this link](https://github.com/CTU-Basel/pkgTemplateR/generate)
+"Use this template" button or use [this link](https://github.com/PatrickRWright/ATCapiR/generate)
 to it and set up your new R package repository as usual on GitHub.
 
 If you want to work with the continuous integration (CI) modules you
@@ -19,23 +19,23 @@ the pkgdown page. For the packagedown page you will need to configure
 the GitHub Pages part in the Settings to use the gh-pages branch and the
 root directory within.
 
-You will also need to search and replace all occurences of `pkgTemplateR` with
+You will also need to search and replace all occurences of `ATCapiR` with
 the name that you have chosen for your R package.
 
 ## Installing from GitHub with devtools
 
 ```{r, eval = FALSE}
-devtools::install_github("CTU-Basel/pkgTemplateR")
+devtools::install_github("PatrickRWright/ATCapiR")
 ```
 
 ## Basic usage
 Load the package
 ```{r, echo = TRUE, warning=FALSE, message=FALSE}
 # load the package
-library(pkgTemplateR)
+library(ATCapiR)
 # internal file of the package
 path <- system.file("exdata", "file.txt",
-                    package = "pkgTemplateR")
+                    package = "ATCapiR")
 # print it
 print_file_content(file_path = path)
 ```
@@ -44,12 +44,12 @@ print_file_content(file_path = path)
 ### Testing with devtools
 
 ```{r, eval = FALSE}
-# run tests, this assumes you are one directory up from the pkgTemplateR dir
-devtools::test("pkgTemplateR")
+# run tests, this assumes you are one directory up from the ATCapiR dir
+devtools::test("ATCapiR")
 # spell check
 # ignore words character vector allows to exclude technical terms in the check
 ignore_words <- c()
-devtools::spell_check("pkgTemplateR", ignore = ignore_words)
+devtools::spell_check("ATCapiR", ignore = ignore_words)
 ```
 
 ### Linting with lintr
@@ -57,7 +57,7 @@ devtools::spell_check("pkgTemplateR", ignore = ignore_words)
 ```{r, eval = FALSE}
 # lint the package -> should be clean
 library(lintr)
-lint_package("pkgTemplateR", linters = with_defaults(camel_case_linter = NULL,
+lint_package("ATCapiR", linters = with_defaults(camel_case_linter = NULL,
                                                      object_usage_linter = NULL,
                                                      line_length_linter(125)))
 ```
@@ -65,7 +65,7 @@ lint_package("pkgTemplateR", linters = with_defaults(camel_case_linter = NULL,
 ### Building the vignette
 ```{r, eval = FALSE}
 library(rmarkdown)
-render("vignettes/pkgTemplateR-package-vignette.Rmd",
+render("vignettes/ATCapiR-package-vignette.Rmd",
        output_format=c("pdf_document"))
 ```
 
@@ -91,10 +91,10 @@ Example to import `str_match` `str_length` `str_wrap` from the `stringr` package
 
 ```bash
 # build the package archive
-R CMD build pkgTemplateR
+R CMD build ATCapiR
 # check the archive (should return "Status: OK", no WARNINGs, no NOTEs)
 # in this example for version 0.0.1
-R CMD check pkgTemplateR_0.0.1.tar.gz
+R CMD check ATCapiR_0.0.1.tar.gz
 ```
 
 ### Guidelines for contributors
