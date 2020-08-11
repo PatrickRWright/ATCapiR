@@ -20,8 +20,6 @@ Installing from GitHub with devtools
 Basic usage
 -----------
 
-Load the package
-
     # load the package
     library(ATCapiR)
     # vector of ATC codes
