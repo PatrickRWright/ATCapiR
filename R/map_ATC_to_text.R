@@ -14,7 +14,7 @@
 #'               "C10AA05", "N05BA06", "N05BA06", "N05BA06", "N06AX11", "N06AX11")
 #' # you will need to create an account at https://bioportal.bioontology.org/
 #' # to receive an api_key
-#' ATCapiR::map_ATC_to_text(ATC_vect, len = 7, api_key = api_key)
+#' ATCapiR:::map_ATC_to_text(ATC_vect, len = 7, api_key = api_key)
 map_ATC_to_text <- function(ATC_codes, len = 7, api_key) {
   api_link <- "http://data.bioontology.org/search?ontologies=ATC&require_exact_match=true&q="
   # get relevant substring
