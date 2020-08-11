@@ -69,7 +69,7 @@
 <div id="before-you-install" class="section level2">
 <h2 class="hasAnchor">
 <a href="#before-you-install" class="anchor"></a>Before you install</h2>
-<p>I you would like to work with this package you will first need to create a personal account at the <a href="https://bioportal.bioontology.org/">NCBI Bioportal</a>. Withing your account information you should be able to find an API key. Only a valid API key will allow you to use the package.</p>
+<p>If you would like to work with this package you will first need to create a personal account at the <a href="https://bioportal.bioontology.org/">NCBI Bioportal</a>. Withing your account information you should be able to find an API key. Only a valid API key will allow you to use the package.</p>
 </div>
 <div id="installing-from-github-with-devtools" class="section level2">
 <h2 class="hasAnchor">
@@ -92,62 +92,6 @@
 <span id="cb2-10"><a href="#cb2-10"></a><span class="co"># return translation at third level resolution</span></span>
 <span id="cb2-11"><a href="#cb2-11"></a>ATC_translated_df &lt;-<span class="st"> </span><span class="kw">translate_ATC_codes</span>(ATC_vect, <span class="dt">level_depth =</span> <span class="dv">3</span>, <span class="dt">api_key =</span> api_key)</span></code></pre></div>
 <p>If <code>HTTP error 401</code> is returned your API key is likely wrong or void.</p>
-</div>
-<div id="for-contributors" class="section level2">
-<h2 class="hasAnchor">
-<a href="#for-contributors" class="anchor"></a>For contributors</h2>
-<div id="testing-with-devtools" class="section level3">
-<h3 class="hasAnchor">
-<a href="#testing-with-devtools" class="anchor"></a>Testing with devtools</h3>
-<div class="sourceCode" id="cb3"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># run tests, this assumes you are one directory up from the ATCapiR dir</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a>devtools<span class="op">::</span><span class="kw">test</span>(<span class="st">"ATCapiR"</span>)</span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="co"># spell check</span></span>
-<span id="cb3-4"><a href="#cb3-4"></a><span class="co"># ignore words character vector allows to exclude technical terms in the check</span></span>
-<span id="cb3-5"><a href="#cb3-5"></a>ignore_words &lt;-<span class="st"> </span><span class="kw">c</span>()</span>
-<span id="cb3-6"><a href="#cb3-6"></a>devtools<span class="op">::</span><span class="kw">spell_check</span>(<span class="st">"ATCapiR"</span>, <span class="dt">ignore =</span> ignore_words)</span></code></pre></div>
-</div>
-<div id="linting-with-lintr" class="section level3">
-<h3 class="hasAnchor">
-<a href="#linting-with-lintr" class="anchor"></a>Linting with lintr</h3>
-<div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># lint the package -&gt; should be clean</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="kw">library</span>(lintr)</span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="kw">lint_package</span>(<span class="st">"ATCapiR"</span>, <span class="dt">linters =</span> <span class="kw">with_defaults</span>(<span class="dt">camel_case_linter =</span> <span class="ot">NULL</span>,</span>
-<span id="cb4-4"><a href="#cb4-4"></a>                                                     <span class="dt">object_usage_linter =</span> <span class="ot">NULL</span>,</span>
-<span id="cb4-5"><a href="#cb4-5"></a>                                                     <span class="kw">line_length_linter</span>(<span class="dv">125</span>)))</span></code></pre></div>
-</div>
-<div id="building-the-vignette" class="section level3">
-<h3 class="hasAnchor">
-<a href="#building-the-vignette" class="anchor"></a>Building the vignette</h3>
-<div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">library</span>(rmarkdown)</span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="kw">render</span>(<span class="st">"vignettes/ATCapiR-package-vignette.Rmd"</span>,</span>
-<span id="cb5-3"><a href="#cb5-3"></a>       <span class="dt">output_format=</span><span class="kw">c</span>(<span class="st">"pdf_document"</span>))</span></code></pre></div>
-</div>
-<div id="generating-the-readme-file" class="section level3">
-<h3 class="hasAnchor">
-<a href="#generating-the-readme-file" class="anchor"></a>Generating the README file</h3>
-<p>The README file contains both standard text and interpreted R code. Changes should be made in the <code>README.Rmd</code> file and the file “knited” with R. In this template the knitting of the Rmd file is performed automatically with GitHub actions.</p>
-</div>
-<div id="handling-dependencies" class="section level3">
-<h3 class="hasAnchor">
-<a href="#handling-dependencies" class="anchor"></a>Handling dependencies</h3>
-<p>Dependencies to other R packages are to be declared in the <code>DESCRIPTION</code> file under <code>Imports:</code> and in the specific <code>roxygen2</code> documentation of the functions relying on the dependency. It is suggested to be as explicit as possible. i.e. Just import functions that are needed and not entire packages.</p>
-<p>Example to import <code>str_match</code> <code>str_length</code> <code>str_wrap</code> from the <code>stringr</code> package:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co">#' @importFrom stringr str_match str_length str_wrap</span></span></code></pre></div>
-</div>
-<div id="preparing-a-release-on-cran" class="section level3">
-<h3 class="hasAnchor">
-<a href="#preparing-a-release-on-cran" class="anchor"></a>Preparing a release on CRAN</h3>
-<div class="sourceCode" id="cb7"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># build the package archive</span></span>
-<span id="cb7-2"><a href="#cb7-2"></a>R CMD build ATCapiR</span>
-<span id="cb7-3"><a href="#cb7-3"></a><span class="co"># check the archive (should return "Status: OK", no WARNINGs, no NOTEs)</span></span>
-<span id="cb7-4"><a href="#cb7-4"></a><span class="co"># in this example for version 0.0.1</span></span>
-<span id="cb7-5"><a href="#cb7-5"></a>R CMD check ATCapiR_<span class="dv">0</span>.<span class="dv">0</span>.<span class="fl">1.</span>tar.gz</span></code></pre></div>
-</div>
-<div id="guidelines-for-contributors" class="section level3">
-<h3 class="hasAnchor">
-<a href="#guidelines-for-contributors" class="anchor"></a>Guidelines for contributors</h3>
-<p>Requests for new features and bug fixes should first be documented as an <a href="https://github.com/">Issue</a> on GitHub. Subsequently, in order to contribute to this R package you should fork the main repository. After you have made your changes please run the <a href="README.md#testing-with-devtools">tests</a> and <a href="README.md#linting-with-lintr">lint</a> your code as indicated above. Please also increment the version number. If all tests pass and linting confirms that your coding style conforms you can send a pull request (PR). Changes should also be mentioned in the <code>NEWS</code> file. A test has been implemented to remind you to make these changes (see <a href="tests/testthat/test-version_diff.R">here</a>). The PR should have a description to help the reviewer understand what has been added/changed. New functionalities must be thoroughly documented, have examples and should be accompanied by at least one <a href="tests/testthat/">test</a> to ensure long term robustness. The PR will only be reviewed if all travis, AppVeyor and GitHub actions checks are successful. The person sending the PR should not be the one merging it.</p>
-</div>
 </div>
 </div>
   </div>
