@@ -5,7 +5,7 @@ Authors@R:
     c(person(given = "Patrick R.",
              family = "Wright",
              role = c("aut", "cre"),
-             email = "patrick.wright@usb.ch"),
+             email = "patrick.wright@usb.ch")
              )
 Maintainer: Patrick R. Wright <patrick.wright@usb.ch>
 Description: An R package to query the NCBO Bioportal ATC code API.
