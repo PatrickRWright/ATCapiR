@@ -4,6 +4,8 @@
 #' @param len integer - the length of the ATC code level (7 is the maximum 1 the minimum)
 #' @param api_key character - create an account at https://bioportal.bioontology.org/ and it will come with an api key
 #' @return data.frame
+#' @importFrom stringr str_length
+#' @importFrom jsonlite fromJSON
 #' @details Since the level depth specified in translate_ATC_codes() needs to be translated
 #'          to a string length, this helper was written to perform this task in a controled manner.
 #' @examples
