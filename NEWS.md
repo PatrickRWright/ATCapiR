@@ -1,2 +1,2 @@
-# pkgTemplateR 0.0.1
-* `pkgTemplateR` now includes the `print_file_content()` function to print the contents of a text file.
+# ATCapiR 0.0.1
+* `ATCapiR` contains the function translate_ATC_codes() to parse data from the NCBO Bioportal ATC code ontology.
