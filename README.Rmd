@@ -3,24 +3,11 @@
 
 # ATCapiR `r badger::badge_custom("dev version", as.character(packageVersion("ATCapiR")), "blue", "https://github.com/PatrickRWright/ATCapiR")` [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/PatrickRWright/ATCapiR?branch=master&svg=true)](https://ci.appveyor.com/project/PatrickRWright/ATCapiR) [![travis](https://api.travis-ci.com/PatrickRWright/ATCapiR.svg?branch=master)](https://api.travis-ci.com/PatrickRWright/ATCapiR.svg?branch=master) [![codecov](https://codecov.io/github/PatrickRWright/ATCapiR/branch/master/graphs/badge.svg)](https://codecov.io/github/PatrickRWright/ATCapiR)
 
-**Template created by Patrick R. Wright**
+## Before you install
 
-If you would like to make use of this template just click the green
-"Use this template" button or use [this link](https://github.com/PatrickRWright/ATCapiR/generate)
-to it and set up your new R package repository as usual on GitHub.
-
-If you want to work with the continuous integration (CI) modules you
-will need to grant [travis](https://travis-ci.com/) and [AppVeyor](https://ci.appveyor.com)
-access to your repository. The config files ([.travis.yml](.travis.yml),
-[appveyor.yml](appveyor.yml)) for travis and AppVeyor are already in the repository.
-GitHub actions builds have already been set up too. They will check if the
-package runs on Linux, Windows and macOS. Furthermore they will render
-the pkgdown page. For the packagedown page you will need to configure
-the GitHub Pages part in the Settings to use the gh-pages branch and the
-root directory within.
-
-You will also need to search and replace all occurences of `ATCapiR` with
-the name that you have chosen for your R package.
+I you would like to work with this package you will first need to create a personal account at
+the [NCBI Bioportal](https://bioportal.bioontology.org/). Withing your account information you should
+be able to find an API key. Only a valid API key will allow you to use the package.
 
 ## Installing from GitHub with devtools
 
@@ -30,15 +17,21 @@ devtools::install_github("PatrickRWright/ATCapiR")
 
 ## Basic usage
 Load the package
-```{r, echo = TRUE, warning=FALSE, message=FALSE}
+```{r, echo = TRUE, warning=FALSE, message=FALSE, eval = FALSE}
 # load the package
 library(ATCapiR)
-# internal file of the package
-path <- system.file("exdata", "file.txt",
-                    package = "ATCapiR")
-# print it
-print_file_content(file_path = path)
+# vector of ATC codes
+ATC_vect <- c("A02BC02", "C03BA08", "A02BC02", "A02BC02", "A07DA03", "A07DA03",
+              "A02BC02", "A02BC02", "A02BC02", "A02BC02", "C10AA05", "C10AA05",
+              "C10AA05", "N05BA06", "N05BA06", "N05BA06", "N06AX11", "N06AX11")
+# you will need to create an account at https://bioportal.bioontology.org/ to receive an api_key
+# the key below is not real and just supposed to give you an impression of the format
+api_key <- "a123b456-cd78-91e2-fgh3-4ij56kl7mno8"
+# return translation at third level resolution
+ATC_translated_df <- translate_ATC_codes(ATC_vect, level_depth = 3, api_key = api_key)
 ```
+
+If `HTTP error 401` is returned your API key is likely wrong or void.
 
 ## For contributors
 ### Testing with devtools
