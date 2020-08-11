@@ -24,10 +24,12 @@ Since the level depth specified in translate_ATC_codes() needs to be translated
          to a string length, this helper was written to perform this task in a controled manner.
 }
 \examples{
+\dontrun{
 ATC_vect <- c("A02BC02", "C03BA08", "A02BC02", "A02BC02", "A07DA03", "A07DA03",
               "A02BC02", "A02BC02", "A02BC02", "A02BC02", "C10AA05", "C10AA05",
               "C10AA05", "N05BA06", "N05BA06", "N05BA06", "N06AX11", "N06AX11")
 # you will need to create an account at https://bioportal.bioontology.org/
 # to receive an api_key
 ATCapiR:::map_ATC_to_text(ATC_vect, len = 7, api_key = api_key)
+}
 }

@@ -16,12 +16,14 @@
 #'          https://www.bioontology.org/wiki/BioPortal_Help#Programming_with_the_BioPortal_API
 #' @export
 #' @examples
+#' \dontrun{
 #' ATC_vect <- c("A02BC02", "C03BA08", "A02BC02", "A02BC02", "A07DA03", "A07DA03",
 #'               "A02BC02", "A02BC02", "A02BC02", "A02BC02", "C10AA05", "C10AA05",
 #'               "C10AA05", "N05BA06", "N05BA06", "N05BA06", "N06AX11", "N06AX11")
 #' # you will need to create an account at https://bioportal.bioontology.org/
 #' # to receive an api_key
 #' translate_ATC_codes(ATC_vect, level_depth = 3, api_key = api_key)
+#' }
 translate_ATC_codes <- function(ATC_codes, level_depth = 5, api_key) {
   # error handling
   if (! typeof(ATC_codes) == "character") {
