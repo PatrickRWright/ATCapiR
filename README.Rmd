@@ -16,7 +16,7 @@ devtools::install_github("PatrickRWright/ATCapiR")
 ```
 
 ## Basic usage
-Load the package
+
 ```{r, echo = TRUE, warning=FALSE, message=FALSE, eval = FALSE}
 # load the package
 library(ATCapiR)
