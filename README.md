@@ -1,33 +1,21 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-pkgTemplateR [![](https://img.shields.io/badge/dev%20version-0.0.1-blue.svg)](https://github.com/CTU-Basel/pkgTemplateR) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/CTU-Basel/pkgTemplateR?branch=master&svg=true)](https://ci.appveyor.com/project/CTU-Basel/pkgTemplateR) [![travis](https://api.travis-ci.com/CTU-Basel/pkgTemplateR.svg?branch=master)](https://api.travis-ci.com/CTU-Basel/pkgTemplateR.svg?branch=master) [![codecov](https://codecov.io/github/CTU-Basel/pkgTemplateR/branch/master/graphs/badge.svg)](https://codecov.io/github/CTU-Basel/pkgTemplateR)
-=================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================
+ATCapiR [![](https://img.shields.io/badge/dev%20version-0.0.1-blue.svg)](https://github.com/PatrickRWright/ATCapiR) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/PatrickRWright/ATCapiR?branch=master&svg=true)](https://ci.appveyor.com/project/PatrickRWright/ATCapiR) [![travis](https://api.travis-ci.com/PatrickRWright/ATCapiR.svg?branch=master)](https://api.travis-ci.com/PatrickRWright/ATCapiR.svg?branch=master) [![codecov](https://codecov.io/github/PatrickRWright/ATCapiR/branch/master/graphs/badge.svg)](https://codecov.io/github/PatrickRWright/ATCapiR)
+============================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================
 
-**Template created by Patrick R. Wright**
+Before you install
+------------------
 
-If you would like to make use of this template just click the green “Use
-this template” button or use [this
-link](https://github.com/CTU-Basel/pkgTemplateR/generate) to it and set
-up your new R package repository as usual on GitHub.
-
-If you want to work with the continuous integration (CI) modules you
-will need to grant [travis](https://travis-ci.com/) and
-[AppVeyor](https://ci.appveyor.com) access to your repository. The
-config files ([.travis.yml](.travis.yml), [appveyor.yml](appveyor.yml))
-for travis and AppVeyor are already in the repository. GitHub actions
-builds have already been set up too. They will check if the package runs
-on Linux, Windows and macOS. Furthermore they will render the pkgdown
-page. For the packagedown page you will need to configure the GitHub
-Pages part in the Settings to use the gh-pages branch and the root
-directory within.
-
-You will also need to search and replace all occurences of
-`pkgTemplateR` with the name that you have chosen for your R package.
+I you would like to work with this package you will first need to create
+a personal account at the [NCBI
+Bioportal](https://bioportal.bioontology.org/). Withing your account
+information you should be able to find an API key. Only a valid API key
+will allow you to use the package.
 
 Installing from GitHub with devtools
 ------------------------------------
 
-    devtools::install_github("CTU-Basel/pkgTemplateR")
+    devtools::install_github("PatrickRWright/ATCapiR")
 
 Basic usage
 -----------
@@ -35,39 +23,43 @@ Basic usage
 Load the package
 
     # load the package
-    library(pkgTemplateR)
-    # internal file of the package
-    path <- system.file("exdata", "file.txt",
-                        package = "pkgTemplateR")
-    # print it
-    print_file_content(file_path = path)
+    library(ATCapiR)
+    # vector of ATC codes
+    ATC_vect <- c("A02BC02", "C03BA08", "A02BC02", "A02BC02", "A07DA03", "A07DA03",
+                  "A02BC02", "A02BC02", "A02BC02", "A02BC02", "C10AA05", "C10AA05",
+                  "C10AA05", "N05BA06", "N05BA06", "N05BA06", "N06AX11", "N06AX11")
+    # you will need to create an account at https://bioportal.bioontology.org/ to receive an api_key
+    # the key below is not real and just supposed to give you an impression of the format
+    api_key <- "a123b456-cd78-91e2-fgh3-4ij56kl7mno8"
+    # return translation at third level resolution
+    ATC_translated_df <- translate_ATC_codes(ATC_vect, level_depth = 3, api_key = api_key)
 
-    ## Hello world!
+If `HTTP error 401` is returned your API key is likely wrong or void.
 
 For contributors
 ----------------
 
 ### Testing with devtools
 
-    # run tests, this assumes you are one directory up from the pkgTemplateR dir
-    devtools::test("pkgTemplateR")
+    # run tests, this assumes you are one directory up from the ATCapiR dir
+    devtools::test("ATCapiR")
     # spell check
     # ignore words character vector allows to exclude technical terms in the check
     ignore_words <- c()
-    devtools::spell_check("pkgTemplateR", ignore = ignore_words)
+    devtools::spell_check("ATCapiR", ignore = ignore_words)
 
 ### Linting with lintr
 
     # lint the package -> should be clean
     library(lintr)
-    lint_package("pkgTemplateR", linters = with_defaults(camel_case_linter = NULL,
+    lint_package("ATCapiR", linters = with_defaults(camel_case_linter = NULL,
                                                          object_usage_linter = NULL,
                                                          line_length_linter(125)))
 
 ### Building the vignette
 
     library(rmarkdown)
-    render("vignettes/pkgTemplateR-package-vignette.Rmd",
+    render("vignettes/ATCapiR-package-vignette.Rmd",
            output_format=c("pdf_document"))
 
 ### Generating the README file
@@ -93,10 +85,10 @@ package:
 ### Preparing a release on CRAN
 
     # build the package archive
-    R CMD build pkgTemplateR
+    R CMD build ATCapiR
     # check the archive (should return "Status: OK", no WARNINGs, no NOTEs)
     # in this example for version 0.0.1
-    R CMD check pkgTemplateR_0.0.1.tar.gz
+    R CMD check ATCapiR_0.0.1.tar.gz
 
 ### Guidelines for contributors
 
