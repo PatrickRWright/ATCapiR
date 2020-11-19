@@ -8,7 +8,7 @@ Before you install
 
 If you would like to work with this package you will first need to
 create a personal account at the [NCBI
-Bioportal](https://bioportal.bioontology.org/). Withing your account
+Bioportal](https://bioportal.bioontology.org/). Within your account
 information you should be able to find an API key. Only a valid API key
 will allow you to use the package.
 
