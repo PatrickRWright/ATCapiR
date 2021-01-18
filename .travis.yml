@@ -14,6 +14,8 @@ apt_packages:
   - tcl8.5-dev
   - tk8.5-dev
   - ghostscript
+  - libharfbuzz-dev
+  - libfribidi-dev
 
 r_packages:
   - covr
